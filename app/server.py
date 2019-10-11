@@ -48,7 +48,7 @@ async def analyze(request):
     img_bytes = await (data['file'].read())
     img = open_image(BytesIO(img_bytes))
     result = str(learn.predict(img)[0]) + ' otter'
-    message = f'Yes, that is most likely a {result}. Well done' if 'sea' in result else 'No, that is probably a {result}.'
+    message = f'Yes, that is most likely a {result}. Well done' if 'sea' in result else 'Uhhhh, that is probably a {result}.'
     return JSONResponse({message})
 
 if __name__ == '__main__':
