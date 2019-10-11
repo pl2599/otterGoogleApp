@@ -49,7 +49,7 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     result = str(learn.predict(img)[0]) + ' otter'
     message = f'Yes, that is most likely a {result}. Well done' if 'sea' in result else f'Uhhhh, that is probably a {result}.'
-    return JSONResponse({'Result': message})
+    return JSONResponse({'result': message})
 
 if __name__ == '__main__':
     if 'serve' in sys.argv: uvicorn.run(app, host='0.0.0.0', port=8080)
